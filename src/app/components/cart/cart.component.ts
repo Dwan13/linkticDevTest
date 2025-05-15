@@ -6,9 +6,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
-  imports: [CurrencyPipe],
+  standalone: true,
+  imports: [CurrencyPipe], // Asegúrate de tener CommonModule y CurrencyPipe si los usas
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.sass'
+  styleUrls: ['./cart.component.sass'] // Asegúrate de que esta línea apunte al archivo SASS
 })
 export class CartComponent {
  

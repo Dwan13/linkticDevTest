@@ -1,5 +1,5 @@
-// Variables SASS (pueden coexistir o ser reemplazadas si solo usas CSS vars)
-$primary-color-s: #007bff
+
+$primary-color-s: #713714FF
 $secondary-color-s: #6c757d
 $text-color-s: #212529
 $white-s: #fff
@@ -7,8 +7,10 @@ $gray-border-s: #dee2e6
 $border-radius-s: .25rem
 $background-color-s: #f8f9fa
 $font-family-base-s: 'Segoe UI', Arial, sans-serif
+$success-color-s: #28a745 
+$success-color-dark-s: #218838 
 
-// Variables CSS Globales (Custom Properties)
+
 :root
   --primary-color: #{$primary-color-s}
   --secondary-color: #{$secondary-color-s}
@@ -19,30 +21,32 @@ $font-family-base-s: 'Segoe UI', Arial, sans-serif
   --background-color: #{$background-color-s}
   --font-family-base: #{$font-family-base-s}
 
-  // Puedes añadir más variables según necesites
+  
   --font-size-base: 1rem
   --line-height-base: 1.5
 
-  // Variables para la tabla (ejemplo)
+  
   --table-border-color: #{$gray-border-s}
   --table-head-bg: #f0f0f0 
   --table-head-color: #{$text-color-s}
   --table-cell-padding: .75rem
   --table-striped-row-bg: rgba(0, 0, 0, 0.03) 
 
-  // Variables para botones (ejemplo)
+  
   --btn-padding-y: .5rem
   --btn-padding-x: 1rem
   --btn-font-size: 1rem
   --btn-border-radius: #{$border-radius-s}
+  --success-color: #{$success-color-s} 
+  --success-color-dark: #{$success-color-dark-s} 
 
-  // Variables para el modal (ejemplo)
+  
   --modal-bg: #{$white-s}
   --modal-overlay-bg: rgba(0, 0, 0, 0.5)
   --modal-header-bg: #f8f9fa
   --modal-shadow: 0 0.5rem 1rem var(--rgba-black-15)
   
-  // RGBA globales
+  
   --rgba-black-03: rgba(0, 0, 0, 0.03)
   --rgba-black-05: rgba(0, 0, 0, 0.05)
   --rgba-black-07: rgba(0, 0, 0, 0.07)
@@ -57,7 +61,7 @@ $font-family-base-s: 'Segoe UI', Arial, sans-serif
   --rgba-white-15: rgba(255, 255, 255, 0.15)
   --rgba-white-80: rgba(255, 255, 255, 0.8)
 
-  // Variables de spacing (espaciado)
+  
   --spacing-xxs: 0.125rem   
   --spacing-xs:  0.25rem    
   --spacing-sm:  0.5rem     
@@ -66,6 +70,6 @@ $font-family-base-s: 'Segoe UI', Arial, sans-serif
   --spacing-xl:  2rem       
   --spacing-xxl: 3rem       
 
-  // Ejemplo de uso:
-  // margin: var(--spacing-md);
-  // padding: var(--spacing-sm) var(--spacing-lg);
+  
+  
+  

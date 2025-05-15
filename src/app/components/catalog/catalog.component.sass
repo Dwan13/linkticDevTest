@@ -1,17 +1,36 @@
 @use '../../styles/mixins' as *
 
 // Contenedor principal de los productos
-.product-list-container
+.catalog-container
   display: flex
-  flex-wrap: wrap
-  gap: var(--spacing-lg, 1.5rem)
-  justify-content: center
-  align-items: stretch
-  padding: var(--spacing-lg, 1.5rem)
-    
-+media-sm
-  .product-list-container
-    gap: var(--spacing-md)
+  flex-direction: column
+  align-items: center
+  padding: 20px
+
+.product-list-container
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) // Diseño responsivo en columnas
+  gap: 20px // Espacio entre tarjetas de producto
+  width: 100%
+  max-width: 1200px // Ancho máximo del catálogo
+  margin-bottom: 20px // Espacio entre la lista de productos y la paginación
+
+.pagination-controls
+  display: flex
+  align-items: center
+  gap: 15px // Espacio entre elementos de paginación
+
+  button
+    padding: 8px 15px
+    border-radius: 4px
+
+    &:disabled
+      opacity: 0.5
+      cursor: not-allowed
+
+  span
+    font-size: 1rem
+    color: #333
     background: var(--background-color, #f8f9fa)
   .product-list-container ::ng-deep app-product-card
     width: 100%

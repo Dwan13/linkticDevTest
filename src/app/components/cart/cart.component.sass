@@ -1,170 +1,166 @@
 @use '../../styles/mixins' as *
+
 .table-responsive-container
   display: block
   width: 100%
   overflow-x: auto
   -webkit-overflow-scrolling: touch
-  padding: var(--spacing-lg)
+  padding: var(--spacing-lg) 
 
 h2
-  margin-bottom: var(--spacing-lg, 1rem)
-  color: var(--text-color)
+  margin-bottom: var(--spacing-lg) 
+  color: var(--text-color) 
   font-size: 2rem
   text-align: center
 
-table
+.cart-table 
   width: 100%
-  margin-bottom: var(--spacing-lg, 1rem)
-  color: var(--text-color)
+  margin-bottom: var(--spacing-lg) 
+  color: var(--text-color) 
   border-collapse: collapse
-  background: var(--white)
-  border-radius: var(--border-radius)
+  background: var(--white) 
+  border-radius: var(--border-radius) 
   overflow: hidden
-  box-shadow: 0 0.125rem 0.25rem var(--rgba-black-07, rgba(0,0,0,0.07))
+  box-shadow: 0 0.125rem 0.25rem var(--rgba-black-07) 
 
   th,
   td
-    padding: var(--table-cell-padding, var(--spacing-md, .75rem))
+    padding: var(--table-cell-padding) 
     vertical-align: top
-    border-top: 1px solid var(--table-border-color, #dee2e6)
+    border-top: 1px solid var(--table-border-color) 
     text-align: center
 
   thead
     th
       vertical-align: bottom
-      border-bottom: 2px solid var(--table-border-color, #dee2e6)
-      background-color: var(--table-head-bg, #f8f9fa)
-      color: var(--table-head-color, #495057)
+      border-bottom: 2px solid var(--table-border-color) 
+      background-color: var(--table-head-bg) 
+      color: var(--table-head-color) 
       text-align: center
       font-weight: bold
 
   tbody
     tr
       &:nth-of-type(odd)
-        background-color: var(--table-striped-row-bg, rgba(0,0,0,0.05))
+        background-color: var(--table-striped-row-bg) 
 
       &:hover
-        background-color: var(--rgba-primary-10, rgba(0, 123, 255, 0.1))
+        background-color: var(--rgba-primary-10) 
 
     td
-      &[colspan="4"]
-        text-align: center
-        padding: var(--spacing-xxl, 2rem)
-        font-style: italic
-        color: #6c757d
+      
+      @include media-md 
+        display: block 
+        text-align: right 
+        &::before 
+          content: attr(data-label) ": " 
+          font-weight: bold
+          float: left 
+          margin-right: var(--spacing-sm) 
+          color: var(--text-color) 
 
-      .btn-danger
-        background-color: #dc3545
-        border: 1px solid #dc3545
-        color: var(--white)
-        padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.5rem)
+      .btn-danger 
+        background-color: #dc3545 
+        border: 1px solid #dc3545 
+        color: var(--white) 
+        padding: var(--spacing-xs) var(--spacing-sm) 
         font-size: 0.875rem
         line-height: 1.5
-        border-radius: 0.2rem
+        border-radius: 0.2rem 
         cursor: pointer
         transition: background 0.15s, border 0.15s
 
         &:hover
-          background-color: #c82333
-          border-color: #bd2130
+          background-color: #c82333 
+          border-color: #bd2130 
 
   tfoot
     td
       font-weight: bold
-      border-top: 2px solid var(--table-border-color, #dee2e6)
+      border-top: 2px solid var(--table-border-color) 
 
       &[colspan="4"]
         text-align: right
-        padding-right: calc(var(--table-cell-padding, var(--spacing-md, .75rem)) * 2)
+        padding-right: calc(var(--table-cell-padding) * 2) 
 
       &[colspan="1"]
         text-align: left
 
-// Responsive
-+media-md
-  .table-responsive-container
-    padding: var(--spacing-md)
 
-  table
+@include media-md 
+  .table-responsive-container
+    padding: var(--spacing-md) 
+
+  .cart-table 
     font-size: 0.95rem
 
     th, td
-      padding: var(--spacing-sm)
+      padding: var(--spacing-sm) 
 
     thead
-      th
-        font-size: 1rem
+      display: none 
 
+    tr
+      margin-bottom: var(--spacing-lg) 
+      border: 1px solid var(--gray-border) 
+      border-radius: var(--border-radius) 
+      box-shadow: 0 0.125rem 0.25rem var(--rgba-black-07) 
+      background: var(--white) 
+      display: block 
+
+    td
+      position: relative
+      padding-left: var(--spacing-xl) 
+      text-align: left
+      border: none
+      border-bottom: 1px solid var(--gray-border) 
+      min-height: 48px 
+
+      &:last-child
+        border-bottom: none
+
+    
     tfoot
-      td
-        font-size: 1rem
+      tr
+        background: var(--table-head-bg) 
+        border: 2px solid var(--table-border-color) 
+        box-shadow: none
+        margin-bottom: 0
+        border-radius: var(--border-radius) 
+        display: flex 
 
-+media-xs
+      td
+        font-weight: bold
+        font-size: 1.1em
+        text-align: left
+        padding-left: var(--spacing-xl) 
+        border: none
+        border-bottom: none
+        background: transparent
+        color: var(--primary-color) 
+        position: relative
+
+@include media-xs 
   h2
     font-size: 1.3rem
 
-  table
+  .cart-table 
     font-size: 0.85rem
 
     th, td
-      padding: var(--spacing-xs, 0.25rem)
+      padding: var(--spacing-xs) 
 
-+media-md
-  table, thead, tbody, th, td, tr, tfoot
-    display: block
-    width: 100%
+.empty-cart-message 
+  text-align: center
+  padding: var(--spacing-xl) 
+  border: 1px dashed var(--gray-border) 
+  border-radius: var(--border-radius) 
+  background-color: var(--background-color) 
+  color: var(--secondary-color) 
+  font-size: 1.2rem
+  margin: var(--spacing-md) auto 
 
-  thead
-    display: none
-
-  tr
-    margin-bottom: var(--spacing-lg, 1.5rem)
-    border: 1px solid var(--gray-border)
-    border-radius: var(--border-radius)
-    box-shadow: 0 0.125rem 0.25rem var(--rgba-black-07, rgba(0,0,0,0.07))
-    background: var(--white)
-
-  // Solo mostrar el label y los dos puntos si existe data-label
-  td[data-label]::before
-    content: attr(data-label) ": "
-    position: absolute
-    left: var(--spacing-md, 1rem)
-    top: 50%
-    transform: translateY(-50%)
-    font-weight: bold
-    color: var(--text-color)
-    font-size: 0.95em
-
-  td
-    position: relative
-    padding-left: var(--spacing-xl, 2rem)
-    text-align: left
-    border: none
-    border-bottom: 1px solid var(--gray-border)
-    min-height: 48px
-
-    &:last-child
-      border-bottom: none
-
-  // Ajuste especial para tfoot: solo el valor total lleva data-label
-  tfoot
-    tr
-      background: var(--table-head-bg, #f8f9fa)
-      border: 2px solid var(--table-border-color, #dee2e6)
-      box-shadow: none
-      margin-bottom: 0
-      border-radius: var(--border-radius)
-      display: flex
-
-    td
-      font-weight: bold
-      font-size: 1.1em
-      text-align: left
-      padding-left: var(--spacing-xl, 2rem)
-      border: none
-      border-bottom: none
-      background: transparent
-      color: var(--primary-color)
-      position: relative
+  p
+    margin: 0 
 
   
