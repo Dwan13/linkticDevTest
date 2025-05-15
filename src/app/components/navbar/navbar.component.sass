@@ -1,0 +1,187 @@
+@use '../../styles/mixins' as *
+
+.custom-navbar
+  background-color: var(--navbar-bg, #2c3e50)
+  padding: 0.75rem 1.5rem
+  box-shadow: 0 2px 4px var(--rgba-black-10, rgba(0, 0, 0, 0.1))
+
+  .navbar-container
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    max-width: 1140px
+    margin: 0 auto
+
+  .navbar-brand-custom
+    color: var(--navbar-brand-color, #ecf0f1)
+    font-size: 1.5rem
+    text-decoration: none
+    font-weight: 600
+
+  .navbar-toggler-custom
+    display: none
+    padding: 0.3rem 0.6rem
+    font-size: 1.5rem
+    background-color: transparent
+    border: none
+    outline: none
+    color: var(--navbar-text-color, rgba(255,255,255,0.8))
+    cursor: pointer
+    transition: background-color 0.2s ease-in-out
+    z-index: 1201
+
+    &:hover
+      background-color: var(--rgba-white-10, rgba(255, 255, 255, 0.1))
+
+    .toggler-icon
+      position: relative
+      width: 28px
+      height: 22px
+      display: flex
+      align-items: center
+      justify-content: center
+
+      span, &::before, &::after
+        content: ''
+        display: block
+        position: absolute
+        width: 28px
+        height: 3px
+        background-color: var(--toggler-icon-color, var(--rgba-white-80, rgba(255,255,255,0.8)))
+        border-radius: 2px
+        transition: all 0.3s cubic-bezier(0.4,0,0.2,1)
+
+      span
+        top: 9.5px
+        left: 0
+
+      &::before
+        top: 2px
+        left: 0
+
+      &::after
+        bottom: 2px
+        left: 0
+
+    &[aria-expanded="true"] .toggler-icon
+      span
+        opacity: 0
+      &::before
+        transform: translateY(9.5px) rotate(45deg)
+      &::after
+        transform: translateY(-9.5px) rotate(-45deg)
+
+  .navbar-links
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+      display: flex
+      align-items: center
+
+      li
+        margin-left: 1.5rem
+
+        a
+          color: var(--navbar-text-color, rgba(255,255,255,0.8))
+          text-decoration: none
+          padding: 0.5rem 0
+          display: block
+          cursor: pointer
+          position: relative
+          transition: color 0.2s ease-in-out
+
+          &:hover
+            color: var(--navbar-link-hover-color, #fff)
+
+          &::after
+            content: ''
+            position: absolute
+            width: 0
+            height: 2px
+            display: block
+            margin-top: 5px
+            right: 0
+            background: var(--navbar-link-hover-color, #fff)
+            transition: width 0.3s ease
+            -webkit-transition: width 0.3s ease
+
+          &:hover::after
+            width: 100%
+            left: 0
+            background: var(--navbar-link-hover-color, #fff)
+
+          &.active-link
+            color: var(--navbar-active-link-color, #3498db)
+            font-weight: 500
+
+            &::after
+              content: ''
+              position: absolute
+              width: 100%
+              height: 2px
+              display: block
+              margin-top: 5px
+              left: 0
+              background: var(--navbar-active-link-color, #3498db)
+
+// Estilos para pantallas pequeñas (responsive)
++media-md
+    .custom-navbar
+        .navbar-container
+            max-width: 100%
+
+        .navbar-toggler-custom
+            display: block
+
+        .navbar-links
+            display: block
+            width: 80vw
+            max-width: 320px
+            position: fixed
+            top: 0
+            right: -100vw
+            height: 100vh
+            background-color: var(--navbar-bg-mobile, #263445)
+            padding: var(--spacing-xl, 2rem) var(--spacing-lg, 1.5rem)
+            box-shadow: -2px 0 16px var(--rgba-black-17, rgba(0, 0, 0, 0.17))
+            border-top: none
+            border-left: 1px solid var(--rgba-black-10, rgba(0, 0, 0, 0.1))
+            z-index: 1200
+            transition: right 0.3s cubic-bezier(0.4,0,0.2,1)
+
+            &.show
+                right: 0
+
+        ul
+            flex-direction: column
+            width: 100%
+            gap: var(--spacing-lg, 1.5rem)
+
+            li
+                margin-left: 0
+                width: 100%
+
+            a
+                padding: 1.25rem 0
+                border-bottom: 1px solid var(--rgba-white-07, rgba(255, 255, 255, 0.07))
+                text-align: left
+                font-size: 1.1rem
+
+                &::after
+                    display: none
+
+                &:hover
+                    background-color: var(--rgba-white-05, rgba(255, 255, 255, 0.05))
+
+            &:last-child a
+                border-bottom: none
+
+@keyframes fadeInMenu
+  from
+    opacity: 0
+    transform: translateX(100px)
+  to
+    opacity: 1
+    transform: translateX(0)

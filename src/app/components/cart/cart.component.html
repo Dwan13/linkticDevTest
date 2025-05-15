@@ -1,0 +1,45 @@
+<div class="table-responsive-container">
+    <h2>Carro de compras!</h2>
+
+    @if (items.length > 0) {
+    <table>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Total</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of items; track item.product.id) {
+                <tr>
+                    <td data-label="Producto">{{item.product.name}}</td>
+                    <td data-label="Cantidad">{{item.quantity}}</td>
+                    <td data-label="Precio">{{item.product.price | currency}}</td>
+                    <td data-label="Total">{{item.product.price * item.quantity | currency}}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm"
+                         (click)="onDeleteCart(item.product.id)">
+                            eliminar
+                        </button>
+                    </td>
+                </tr>
+            } 
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Total</td>
+                <td colspan="1">{{total}}</td>
+            </tr>
+        </tfoot>
+    </table>
+    } @else {
+        <tr>
+            <td colspan="4">
+                No hay productos en el carro
+            </td>
+        </tr>
+    }
+</div>

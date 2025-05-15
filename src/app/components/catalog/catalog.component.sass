@@ -1,0 +1,17 @@
+@use '../../styles/mixins' as *
+
+// Contenedor principal de los productos
+.product-list-container
+  display: flex
+  flex-wrap: wrap
+  gap: var(--spacing-lg, 1.5rem)
+  justify-content: center
+  align-items: stretch
+  padding: var(--spacing-lg, 1.5rem)
+    
++media-sm
+  .product-list-container
+    gap: var(--spacing-md)
+    background: var(--background-color, #f8f9fa)
+  .product-list-container ::ng-deep app-product-card
+    width: 100%

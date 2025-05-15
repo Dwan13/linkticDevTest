@@ -1,0 +1,54 @@
+.product-card
+  min-width: 260px
+  width: 100%
+  box-sizing: border-box
+  background-color: var(--white)
+  border: 1px solid var(--gray-border)
+  border-radius: var(--border-radius)
+  box-shadow: 0 0.125rem 0.25rem var(--rgba-black-075, rgba(0, 0, 0, 0.075))
+  padding: var(--spacing-lg, 1.5rem)
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  align-items: flex-start
+  transition: box-shadow 0.2s
+
+  &:hover
+    box-shadow: 0 0.5rem 1rem var(--rgba-black-15, rgba(0,0,0,0.15))
+
+  h3
+    font-size: 1.25rem
+    margin-top: 0
+    margin-bottom: var(--spacing-md, 0.75rem)
+    color: var(--text-color)
+
+  p
+    margin-bottom: var(--spacing-sm, 0.5rem)
+    color: var(--text-color)
+    font-size: 0.9rem
+
+  .product-price
+    font-weight: bold
+    color: var(--primary-color)
+    margin-bottom: var(--spacing-md, 1rem)
+    font-size: 1.1rem
+
+  .btn, .add-to-cart-button
+    background-color: var(--primary-color)
+    border-color: var(--primary-color)
+    color: var(--white)
+    padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem)
+    font-size: var(--btn-font-size, 1rem)
+    border-radius: var(--btn-border-radius, .25rem)
+    text-align: center
+    cursor: pointer
+    text-decoration: none
+    border: 1px solid transparent
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s, box-shadow 0.15s
+
+    &:hover
+      background-color: var(--primary-color-hover, #0056b3)
+      border-color: var(--primary-color-hover, #0056b3)
+
+    &:focus
+      box-shadow: 0 0 0 0.2rem var(--rgba-primary-50, rgba(0, 123, 255, 0.5))

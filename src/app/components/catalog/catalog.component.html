@@ -1,0 +1,10 @@
+<div class="product-list-container">
+    @for (product of products; track product.id) {
+        <app-product-card 
+            [product]="product" 
+            (addToCartClicked)="onProductSelected($event)">
+        </app-product-card>
+    } @empty {
+        <p>No hay productos disponibles en el catálogo.</p>
+    }
+</div>
