@@ -1,4 +1,14 @@
+<!-- Agrega este bloque en tu plantilla catalog.component.html -->
 <div class="catalog-container">
+    <div class="category-filter">
+        <label for="categorySelect">Filtrar por categoría:</label>
+        <select id="categorySelect" (change)="onCategoryChange($event)">
+            @for (category of categories; track category) {
+                <option [value]="category === 'Todas' ? null : category">{{ category }}</option>
+            }
+        </select>
+    </div>
+
     <div class="product-list-container">
         @for (product of paginatedProducts$ | async; track product.id) {
             <app-product-card
@@ -6,13 +16,13 @@
                 (addToCartClicked)="onProductSelected($event)">
             </app-product-card>
         } @empty {
-            <p>No hay productos disponibles en el catálogo.</p>
+            <p class="empty-message">No hay productos disponibles en el catálogo.</p>
         }
     </div>
 
     <div class="pagination-controls">
-        <button class="btn" (click)="previousPage()" [disabled]="(currentPage$ | async) === 1">Anterior</button>
-        <span>Página {{ currentPage$ | async }} de {{ totalPages }}</span>
-        <button class="btn" (click)="nextPage()" [disabled]="(currentPage$ | async) === totalPages">Siguiente</button>
+        <button class="btn previous-button" (click)="previousPage()" [disabled]="(currentPage$ | async) === 1">Anterior</button>
+        <span class="page-info">Página {{ currentPage$ | async }} de {{ totalPages }}</span>
+        <button class="btn next-button" (click)="nextPage()" [disabled]="(currentPage$ | async) === totalPages">Siguiente</button>
     </div>
 </div>

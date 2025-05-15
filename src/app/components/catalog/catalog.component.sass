@@ -34,3 +34,44 @@
     background: var(--background-color, #f8f9fa)
   .product-list-container ::ng-deep app-product-card
     width: 100%
+
+// Estilos para el contenedor del filtro
+.category-filter
+  margin-bottom: 20px // Espacio debajo del filtro
+  display: flex // Alinear elementos en línea
+  align-items: center // Centrar verticalmente
+
+  label
+    margin-right: 10px // Espacio entre la etiqueta y el select
+    font-weight: bold // Texto de etiqueta en negrita
+    color: #333 // Color de texto oscuro
+
+  select
+    padding: 8px 12px // Espaciado interno
+    border: 1px solid #ccc // Borde gris claro
+    border-radius: 4px // Bordes redondeados
+    font-size: 1rem // Tamaño de fuente
+    cursor: pointer // Cursor de mano al pasar por encima
+    outline: none // Eliminar el contorno al enfocar
+    background-color: #fff // Fondo blanco
+    transition: border-color 0.2s ease-in-out // Transición suave para el borde
+
+    &:hover
+      border-color: #888 // Borde más oscuro al pasar el ratón
+
+    &:focus
+      border-color: #007bff // Borde azul al enfocar
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) // Sombra suave al enfocar
+
+// Puedes añadir más estilos si lo deseas, por ejemplo, para pantallas pequeñas
+@media (max-width: 768px)
+  .category-filter
+    flex-direction: column // Apilar elementos en pantallas pequeñas
+    align-items: flex-start // Alinear elementos a la izquierda
+
+    label
+      margin-right: 0
+      margin-bottom: 5px // Espacio debajo de la etiqueta
+
+    select
+      width: 100% // Ocupar todo el ancho disponible
