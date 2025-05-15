@@ -1,10 +1,18 @@
-<div class="product-list-container">
-    @for (product of products; track product.id) {
-        <app-product-card 
-            [product]="product" 
-            (addToCartClicked)="onProductSelected($event)">
-        </app-product-card>
-    } @empty {
-        <p>No hay productos disponibles en el catálogo.</p>
-    }
+<div class="catalog-container">
+    <div class="product-list-container">
+        @for (product of paginatedProducts$ | async; track product.id) {
+            <app-product-card
+                [product]="product"
+                (addToCartClicked)="onProductSelected($event)">
+            </app-product-card>
+        } @empty {
+            <p>No hay productos disponibles en el catálogo.</p>
+        }
+    </div>
+
+    <div class="pagination-controls">
+        <button class="btn" (click)="previousPage()" [disabled]="(currentPage$ | async) === 1">Anterior</button>
+        <span>Página {{ currentPage$ | async }} de {{ totalPages }}</span>
+        <button class="btn" (click)="nextPage()" [disabled]="(currentPage$ | async) === totalPages">Siguiente</button>
+    </div>
 </div>

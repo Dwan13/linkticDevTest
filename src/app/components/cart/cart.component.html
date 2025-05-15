@@ -2,7 +2,7 @@
     <h2>Carro de compras!</h2>
 
     @if (items.length > 0) {
-    <table>
+    <table class="cart-table"> <!-- Añadir clase a la tabla -->
         <thead>
             <tr>
                 <th>Producto</th>
@@ -26,20 +26,18 @@
                         </button>
                     </td>
                 </tr>
-            } 
+            }
         </tbody>
         <tfoot>
             <tr>
                 <td colspan="4">Total</td>
-                <td colspan="1">{{total}}</td>
+                <td colspan="1">{{total | currency}}</td> <!-- Aplicar pipe currency al total -->
             </tr>
         </tfoot>
     </table>
     } @else {
-        <tr>
-            <td colspan="4">
-                No hay productos en el carro
-            </td>
-        </tr>
+        <div class="empty-cart-message"> <!-- Envolver el mensaje en un div -->
+            <p>No hay productos en el carro</p>
+        </div>
     }
 </div>
