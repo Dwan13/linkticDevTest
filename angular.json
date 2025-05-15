@@ -32,7 +32,7 @@
               }
             ],
             "styles": [
-              "src/styles.sass"
+              "src/app/styles/main.sass"
             ],
             "scripts": []
           },

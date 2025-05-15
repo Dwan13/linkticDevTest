@@ -1,0 +1,27 @@
+// Breakpoints comunes
+$breakpoint-xs: 480px
+$breakpoint-sm: 576px
+$breakpoint-md: 768px
+$breakpoint-lg: 992px
+$breakpoint-xl: 1200px
+
+// Mixin para media queries
+=media-xs
+  @media (max-width: #{$breakpoint-xs})
+    @content
+
+=media-sm
+  @media (max-width: #{$breakpoint-sm})
+    @content
+
+=media-md
+  @media (max-width: #{$breakpoint-md})
+    @content
+
+=media-lg
+  @media (max-width: #{$breakpoint-lg})
+    @content
+
+=media-xl
+  @media (max-width: #{$breakpoint-xl})
+    @content

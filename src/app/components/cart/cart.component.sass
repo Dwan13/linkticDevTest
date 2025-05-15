@@ -1,0 +1,71 @@
+h2
+  margin-bottom: var(--spacing-lg, 1rem)
+  color: var(--text-color)
+
+table
+  width: 100%
+  margin-bottom: var(--spacing-lg, 1rem)
+  color: var(--text-color)
+  border-collapse: collapse
+
+  th,
+  td
+    padding: var(--table-cell-padding, var(--spacing-md, .75rem))
+    vertical-align: top
+    border-top: 1px solid var(--table-border-color, #dee2e6)
+
+  thead
+    th
+      vertical-align: bottom
+      border-bottom: 2px solid var(--table-border-color, #dee2e6)
+      background-color: var(--table-head-bg, #f8f9fa)
+      color: var(--table-head-color, #495057)
+      text-align: left
+      font-weight: bold
+
+  tbody
+    tr
+      &:nth-of-type(odd)
+        background-color: var(--table-striped-row-bg, rgba(0,0,0,0.05))
+
+      &:hover
+        background-color: rgba(0, 123, 255, 0.1) // O usa var(--primary-color) si defines una variante hover
+
+    td
+      &[colspan="4"]
+        text-align: center
+        padding: var(--spacing-xxl, 2rem)
+        font-style: italic
+        color: #6c757d
+
+      .btn-danger
+        background-color: #dc3545
+        border: 1px solid #dc3545
+        color: var(--white)
+        padding: var(--spacing-xs, 0.25rem) var(--spacing-sm, 0.5rem)
+        font-size: 0.875rem
+        line-height: 1.5
+        border-radius: 0.2rem
+        cursor: pointer
+
+        &:hover
+          background-color: #c82333
+          border-color: #bd2130
+
+  tfoot
+    td
+      font-weight: bold
+      border-top: 2px solid var(--table-border-color, #dee2e6)
+
+      &[colspan="4"]
+        text-align: right
+        padding-right: calc(var(--table-cell-padding, var(--spacing-md, .75rem)) * 2)
+
+      &[colspan="1"]
+        text-align: left
+
+.table-responsive-container
+  display: block
+  width: 100%
+  overflow-x: auto
+  -webkit-overflow-scrolling: touch

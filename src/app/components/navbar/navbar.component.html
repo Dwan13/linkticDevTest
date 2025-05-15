@@ -1,0 +1,24 @@
+<nav class="custom-navbar">
+    <div class="navbar-container">
+        <a class="navbar-brand-custom" href="#">Cart App</a>
+        <button class="navbar-toggler-custom" type="button"
+            aria-label="Toggle navigation" >
+            <span class="toggler-icon"></span>
+        </button>
+        <div class="navbar-links">
+            <ul>
+                <li >
+                    <a class="nav-link active" aria-current="page" 
+                    [routerLink]="['/catalog']"
+                >Catalog</a>
+                </li>
+                <li>
+                    <a 
+                    [routerLink]="['/cart']"
+                    [state]="{items, total}"
+                    class="nav-link" 
+                    role="button">Cart ({{items.length}})</a>                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
