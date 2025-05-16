@@ -1,67 +1,83 @@
-@use '../../styles/mixins' as *
+@use '../../styles/mixins' as * 
 
 .product-card
   border: 1px solid var(--gray-border) 
   border-radius: var(--border-radius) 
-  padding: var(--spacing-md) 
+  overflow: hidden 
+  box-shadow: 0 2px 5px var(--rgba-black-07) 
   display: flex
-  flex-direction: column
-  align-items: center
-  text-align: center
+  flex-direction: column 
   background-color: var(--white) 
-  box-shadow: 0 2px 4px var(--rgba-black-10) 
-  transition: transform 0.2s ease-in-out
-  height: 100%
+  transition: transform 0.3s ease, box-shadow 0.3s ease 
+  height: 100% 
+  justify-content: space-between 
 
   &:hover
     transform: translateY(-5px) 
+    box-shadow: 0 4px 10px var(--rgba-black-15) 
 
-.product-image-container
-  width: 100%
-  height: 150px 
-  overflow: hidden
-  border-radius: var(--border-radius) 
-  margin-bottom: var(--spacing-sm) 
+  
+  .product-link
+    text-decoration: none
+    color: inherit
+    display: flex
+    flex-direction: column
+    flex-grow: 1
 
-  img
+  .product-image-container
     width: 100%
-    height: 100%
-    object-fit: cover 
+    height: 180px
+    overflow: hidden
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: #eee
 
-.product-info
-  flex-grow: 1 
-  margin-bottom: var(--spacing-sm) 
+    img
+      width: 100%
+      height: 100%
+      object-fit: cover
+      display: block
 
-  h3
-    margin-top: 0
-    margin-bottom: var(--spacing-xxs) 
-    font-size: 1.2rem
-    color: var(--text-color) 
-    height: 50%
-    +media-md
-      height: auto
+  .product-info
+    padding: var(--spacing-sm) var(--spacing-md)
+    flex-grow: 1
 
-  .product-category
-    margin-top: 0
-    margin-bottom: var(--spacing-xxs) 
-    font-size: 0.9rem
-    color: var(--secondary-color) 
+    h3
+      margin-top: 0
+      margin-bottom: var(--spacing-xxs)
+      font-size: 1.1em
+      color: var(--text-color)
 
-  .product-price
-    font-size: 1.1rem
-    font-weight: bold
-    color: var(--primary-color) 
-    margin-bottom: var(--spacing-sm) 
+    .product-category
+      margin-top: 0
+      margin-bottom: var(--spacing-sm)
+      font-size: 0.9em
+      color: var(--secondary-color)
 
-.add-to-cart-btn
-  background-color: var(--success-color) 
-  color: var(--white) 
-  border: none
-  border-radius: var(--border-radius) 
-  padding: var(--btn-padding-y) var(--btn-padding-x) 
-  cursor: pointer
-  font-size: var(--btn-font-size) 
-  transition: background-color 0.2s ease-in-out
+    .product-price
+      margin-top: 0
+      margin-bottom: var(--spacing-sm)
+      font-size: 1em
+      font-weight: bold
+      color: var(--primary-color)
 
-  &:hover
-    background-color: var(--success-color-dark) 
+  .add-to-cart-btn
+    
+    
+    
+    display: block
+    width: calc(100% - var(--spacing-md) * 2)
+    margin: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md)
+    padding: var(--btn-padding-y) var(--btn-padding-x)
+    font-size: var(--btn-font-size)
+    border-radius: var(--btn-border-radius)
+    cursor: pointer
+    transition: background-color 0.3s ease, opacity 0.3s ease
+    text-align: center
+    background-color: var(--success-color)
+    color: var(--white)
+    border: 1px solid var(--success-color)
+    &:disabled
+      opacity: 0.6
+      cursor: not-allowed

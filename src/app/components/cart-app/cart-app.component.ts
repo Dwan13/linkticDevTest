@@ -26,7 +26,10 @@ export class CartAppComponent implements OnInit {
     private router: Router,
     private sharingDataService: SharingDataService,
     private service: ProductService) { }
+
   ngOnInit(): void {
+    this.service.loadProducts();
+
     this.items = JSON.parse(sessionStorage.getItem('cart') || '[]');
     this.calculateTotal();
     this.onDeleteCart();

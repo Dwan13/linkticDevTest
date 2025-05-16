@@ -1,4 +1,6 @@
-// Ya no es necesario @use 'variables' aquí si _variables.sass solo define :root y se importa en main.sass
+html, body
+  height: 100%
+  margin: 0
 
 body
   font-family: var(--font-family-base)
@@ -11,10 +13,16 @@ body
   margin-left: auto
   margin-right: auto
   box-sizing: border-box
+  display: flex
+  flex-direction: column
+  min-height: 100vh
 
 *, *::before, *::after
   box-sizing: inherit
 
+main
+  flex-grow: 1
+  
 .abrir-modal
   background-color: rgba(0, 0, 0, 0.7) // Podrías hacer esto una variable también, ej: var(--modal-overlay-custom-bg)
   position: fixed

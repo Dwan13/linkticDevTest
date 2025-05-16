@@ -1,0 +1,42 @@
+<div class="product-detail-container">
+    @if (isLoading) {
+        <p>Cargando detalles del producto...</p>
+    } @else if (errorMessage) {
+        <p class="error-message">{{ errorMessage }}</p>
+    } @else if (product) {
+        <h2>Detalles del Producto: {{ product.name }}</h2>
+        <div class="product-info">
+            <img [src]="product.image" alt="{{product.name}} image" class="product-image">
+            <div class="details">
+                <p><strong>ID:</strong> {{ product.id }}</p>
+                <p><strong>Nombre:</strong> {{ product.name }}</p>
+                <p><strong>Categoría:</strong> {{ product.category }}</p>
+                <p><strong>Precio:</strong> {{ product.price | currency }}</p>
+                <div>
+                    <label for="name">Nombre:</label>
+                    <input id="name" [(ngModel)]="product.name">
+                </div>
+                 <div>
+                    <label for="category">Categoría:</label>
+                    <input id="category" [(ngModel)]="product.category">
+                </div>
+                 <div>
+                    <label for="price">Precio:</label>
+                    <input id="price" type="number" [(ngModel)]="product.price">
+                </div>
+                 <div>
+                    <label for="image">URL Imagen:</label>
+                    <input id="image" [(ngModel)]="product.image">
+                </div>
+
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" (click)="onUpdateProduct()">Actualizar Producto</button>
+                    <button class="btn btn-danger" (click)="onDeleteProduct()">Eliminar Producto</button>
+                </div>
+            </div>
+        </div>
+    } @else {
+        <p>Producto no encontrado.</p>
+    }
+</div>

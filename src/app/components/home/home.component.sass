@@ -1,0 +1,29 @@
+@use '../../styles/mixins' as * // Importa tus mixins
+
+.home-container
+  padding: var(--spacing-lg)
+  text-align: center
+  font-family: var(--font-family-base)
+
+  h1
+    color: var(--primary-color)
+    margin-bottom: var(--spacing-md)
+
+  p
+    color: var(--text-color)
+    margin-bottom: var(--spacing-lg)
+
+.info-section
+  margin-top: var(--spacing-xl)
+  padding: var(--spacing-md)
+  background-color: var(--background-color)
+  border-radius: var(--border-radius)
+  box-shadow: 0 2px 4px var(--rgba-black-05)
+
+  h3
+    color: var(--secondary-color)
+    margin-bottom: var(--spacing-sm)
+
+  p
+    color: var(--text-color)
+    margin-bottom: 0 // Elimina el margen inferior del último párrafo

@@ -1,11 +1,15 @@
 <div class="product-card">
-    <div class="product-image-container">
-        <img [src]="product.image" alt="{{product.name}} image"> <!-- Añadir la imagen -->
-    </div>
-    <div class="product-info">
-        <h3>{{product.name}}</h3>
-        <p class="product-category">{{product.category}}</p> <!-- Añadir clase para categoría -->
-        <p class="product-price">{{product.price | currency}}</p>
-    </div>
-    <button class="btn add-to-cart-btn" (click)="onProductAddToCart()">Agregar al carro</button> <!-- Añadir clase para el botón -->
+    <!-- Envuelve el contenido en un routerLink que navega a /product/:id -->
+    <a [routerLink]="['/product', product.id]" class="product-link">
+        <div class="product-image-container">
+            <img [src]="product.image" alt="{{product.name}} image">
+        </div>
+        <div class="product-info">
+            <h3>{{product.name}}</h3>
+            <p class="product-category">{{product.category}}</p>
+            <p class="product-price">{{product.price | currency}}</p>
+        </div>
+    </a>
+    <!-- El botón "Agregar al carro" se mantiene fuera del enlace si quieres que funcione independientemente -->
+    <button class="btn add-to-cart-btn" (click)="onProductAddToCart()">Agregar al carro</button>
 </div>

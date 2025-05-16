@@ -1,0 +1,106 @@
+@use '../../styles/mixins' as * 
+
+
+.product-detail-container
+  padding: var(--spacing-lg) 
+  max-width: 900px 
+  margin: var(--spacing-xl) auto 
+  background-color: var(--white) 
+  border-radius: var(--border-radius) 
+  box-shadow: 0 4px 8px var(--rgba-black-15) 
+  font-family: var(--font-family-base) 
+
+
+.loading-indicator, .error-message, .empty-message
+  text-align: center
+  font-size: var(--font-size-base)
+  color: var(--text-color)
+  padding: var(--spacing-md)
+
+.error-message
+  color: #dc3545 
+
+
+h2
+  text-align: center
+  color: var(--primary-color) 
+  margin-bottom: var(--spacing-lg)
+  font-size: 2em 
+
+
+.product-info
+  display: grid
+  grid-template-columns: 1fr 
+  gap: var(--spacing-lg) 
+
+  
+  @include media-md
+    grid-template-columns: 1fr 2fr 
+    gap: var(--spacing-xl) 
+
+
+.product-image
+  width: 100%
+  height: auto
+  border-radius: var(--border-radius)
+  object-fit: cover
+  box-shadow: 0 2px 5px var(--rgba-black-10) 
+
+
+.details
+  display: flex
+  flex-direction: column
+  gap: var(--spacing-sm) 
+
+  p
+    margin: 0 
+    strong
+      color: var(--secondary-color) 
+
+
+.details
+  div 
+    margin-bottom: var(--spacing-sm) 
+    label
+      display: block
+      margin-bottom: var(--spacing-xxs)
+      font-weight: bold
+      color: var(--text-color)
+      font-size: 0.9em 
+    input
+      width: 100%
+      padding: var(--spacing-sm) 
+      border: 1px solid var(--gray-border)
+      border-radius: var(--border-radius)
+      box-sizing: border-box
+      font-size: var(--font-size-base) 
+
+
+.action-buttons
+  margin-top: var(--spacing-lg) 
+  display: flex
+  gap: var(--spacing-sm) 
+  flex-wrap: wrap 
+
+  .btn
+    padding: var(--btn-padding-y) var(--btn-padding-x) 
+    font-size: var(--btn-font-size) 
+    border-radius: var(--btn-border-radius) 
+    cursor: pointer
+    transition: background-color 0.3s ease, opacity 0.3s ease 
+    text-align: center 
+    display: inline-block 
+
+    &:disabled
+      opacity: 0.6 
+      cursor: not-allowed 
+
+  .btn-primary
+    background-color: var(--primary-color)
+    color: var(--white)
+    border: 1px solid var(--primary-color)
+     
+  .btn-danger
+    background-color: #dc3545
+    color: var(--white)
+    border: 1px solid #dc3545

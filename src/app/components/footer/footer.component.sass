@@ -1,0 +1,42 @@
+@use '../../styles/mixins' as *
+
+.app-footer
+  background-color: var(--primary-color)
+  color: var(--white)
+  padding: var(--spacing-md) var(--spacing-lg)
+  text-align: center
+  margin-top: auto
+  // Eliminamos las siguientes líneas para quitar el posicionamiento fijo:
+  // position: fixed
+  // bottom: 0
+  // width: 100%
+
+.footer-content
+  max-width: 1200px
+  margin: 0 auto
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: var(--spacing-sm)
+
+  @include media-sm
+    flex-direction: row
+    justify-content: space-between
+    gap: var(--spacing-md)
+
+  p
+    margin: 0
+    font-size: 0.9em
+
+.footer-links
+  display: flex
+  gap: var(--spacing-md)
+
+  a
+    color: var(--white)
+    text-decoration: none
+    font-size: 0.9em
+    transition: color 0.3s ease
+
+    &:hover
+      color: var(--secondary-color)
